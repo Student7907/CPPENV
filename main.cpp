@@ -1,36 +1,38 @@
 #include <iostream>
 
+#include <string>
+
  
 
 class Student {
 
-private:
+protected:
 
     int studentID;
 
-    string name;
+    std::string name;
 
  
 
 public:
 
-    Student(int studentID, string name) {
+    Student(int id, std::string studentName)
 
-        studentID = studentID;
+        : studentID(id), name(studentName) {}
 
-        name = name;
+ 
+
+    virtual void displayInfo() const {
+
+        std::cout << "Student ID: " << studentID << std::endl;
+
+        std::cout << "Name:       " << name       << std::endl;
 
     }
 
  
 
-    void displayInfo() {
-
-        cout << "Student ID: " << studentID << endl;
-
-        cout << "Name: " << name << endl;
-
-    }
+    virtual ~Student() {}
 
 };
 
@@ -45,4 +47,3 @@ int main() {
     return 0;
 
 }
-
